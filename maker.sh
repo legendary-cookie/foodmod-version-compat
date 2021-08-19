@@ -20,5 +20,5 @@ sed -i 's/1.17.x/1.16.x/g' $m
 sed -i 's/"java": ">=16"/"java": ">=8"/g' $m
 
 
-cd $L
-./gradlew runClient
+
+
