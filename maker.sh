@@ -9,12 +9,10 @@ check () {
 		exit
 	fi
 }
-
 check "curl"
 check "java"
 check "git"
-
-curl https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/banner.txt 1>/dev/stdout 2>/dev/null
+curl -sL http://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/banner.txt 1>/dev/stdout 2>/dev/null
 echo "Made by legendary-cookie"
 echo
 L=$HOME/foodmod/
@@ -56,7 +54,7 @@ modded_blocks=$FT/blocks
 printf "\tDownloading 'spruce_leaves.json' ...\n"
 sleep 0.2
 curl -sL \
-	https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/spruce_leaves.json \
+	https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/loot_tables/spruce_leaves.json \
 	--output $vanilla_blocks/spruce_leaves.json 
 printf "\tDownloading 'village_plains_house.json' ...\n"
 sleep 0.2
@@ -66,17 +64,17 @@ curl -sL \
 printf "\tDownloading 'village_savanna_house.json' ...\n"
 sleep 0.2
 curl -sL \
-	https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/village_savanna_house.json \
+	https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/loot_tables/village_savanna_house.json \
 	--output $vanilla_village_chests/village_savanna_house.json
-printf "\tDownloading 'tomato_crops.json' ...\n"
+printf "\tDownloading 'tomato_crop.json' ...\n"
 sleep 0.2
 curl -sL \
-	https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/tomato_crop.json \
-	--output $modded_blocks/tomato_crops.json
-printf "\tDownloading 'onion_crops.json' ...\n"
+	https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/loot_tables/tomato_crop.json \
+	--output $modded_blocks/tomato_crop.json
+printf "\tDownloading 'onion_crop.json' ...\n"
 sleep 0.2
 curl -sL \
-	https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/onion_crop.json \
+	https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/loot_tables/onion_crop.json \
 	--output $modded_blocks/onion_crop.json
 echo "Building jar ..."
 sleep 0.2
