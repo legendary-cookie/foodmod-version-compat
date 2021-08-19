@@ -50,16 +50,19 @@ printf "Patching loot_tables ...\n"
 sleep 0.2
 LT=$L/src/main/resources/data/minecraft/loot_tables
 FT=$L/src/main/resources/data/foodmod/loot_tables
+vanilla_village_chests=$LT/chests/village
+vanilla_blocks=$LT/blocks
+modded_blocks=$FT/blocks
 printf "\tDownloading 'spruce_leaves.json' ...\n"
 sleep 0.2
-curl -sL https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/spruce_leaves.json --output $LT/blocks/spruce_leaves.json 
+curl -sL https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/spruce_leaves.json --output $vanilla_blocks/spruce_leaves.json 
 printf "\tDownloading 'village_plains_house.json' ...\n"
 sleep 0.2
-curl -sL https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/loot_tables/village_plains_house.json --output $LT/chests/village/village_plains_house.json
+curl -sL https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/loot_tables/village_plains_house.json --output $vanilla_village_chests/village_plains_house.json
 printf "\tDownloading 'tomato_crops.json' ...\n"
 sleep 0.2
-curl -sL https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/tomato_crop.json --output $FT/blocks/tomato_crops.json
-rm $LT/chests/village/village_house_plains.json
+curl -sL https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/tomato_crop.json --output $modded_blocks/tomato_crops.json
+rm -f $vanilla_village_chests/village_house_plains.json
 sleep 0.2
 echo
 echo "Building jar ..."
