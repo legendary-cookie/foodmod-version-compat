@@ -20,7 +20,7 @@ echo
 L=$HOME/foodmod/
 rm -rf $L
 echo "Cloning git repository ..."
-git clone -q https://github.com/Link4Real/FoodMod $L
+git clone -q git@github.com:Link4Real/FoodMod $L
 echo "Cloned git repository ..."
 sleep 0.2
 # file constants
@@ -55,23 +55,37 @@ vanilla_blocks=$LT/blocks
 modded_blocks=$FT/blocks
 printf "\tDownloading 'spruce_leaves.json' ...\n"
 sleep 0.2
-curl -sL https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/spruce_leaves.json --output $vanilla_blocks/spruce_leaves.json 
+curl -sL \
+	https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/spruce_leaves.json \
+	--output $vanilla_blocks/spruce_leaves.json 
 printf "\tDownloading 'village_plains_house.json' ...\n"
 sleep 0.2
-curl -sL https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/loot_tables/village_plains_house.json --output $vanilla_village_chests/village_plains_house.json
+curl -sL \
+	https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/loot_tables/village_plains_house.json \
+	--output $vanilla_village_chests/village_plains_house.json
+printf "\tDownloading 'village_savanna_house.json' ...\n"
+sleep 0.2
+curl -sL \
+	https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/village_savanna_house.json \
+	--output $vanilla_village_chests/village_savanna_house.json
 printf "\tDownloading 'tomato_crops.json' ...\n"
 sleep 0.2
-curl -sL https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/tomato_crop.json --output $modded_blocks/tomato_crops.json
-rm -f $vanilla_village_chests/village_house_plains.json
+curl -sL \
+	https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/tomato_crop.json \
+	--output $modded_blocks/tomato_crops.json
+printf "\tDownloading 'onion_crops.json' ...\n"
 sleep 0.2
-echo
+curl -sL \
+	https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/onion_crop.json \
+	--output $modded_blocks/onion_crop.json
+rm -f $vanilla_village_chests/village_house_plains.json
 echo "Building jar ..."
 sleep 0.2
 cd $L
 chmod 0755 ./gradlew
 ./gradlew -Dorg.gradle.logging.level=quiet build
-rm build/libs/*-dev.jar
-rm build/libs/*-sources.jar
+rm -f build/libs/*-dev.jar
+rm -f build/libs/*-sources.jar
 echo "Creating git tag ..."
 sleep 0.2
 COMMIT=$(git rev-parse --short HEAD)
