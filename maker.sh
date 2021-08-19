@@ -1,4 +1,5 @@
 #!/bin/bash
+curl https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/banner.txt
 L=$HOME/foodmod/
 rm -rf $L
 git clone git@github.com:Link4Real/FoodMod $L
