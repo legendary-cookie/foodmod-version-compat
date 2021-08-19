@@ -78,7 +78,6 @@ sleep 0.2
 curl -sL \
 	https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/onion_crop.json \
 	--output $modded_blocks/onion_crop.json
-rm -f $vanilla_village_chests/village_house_plains.json
 echo "Building jar ..."
 sleep 0.2
 cd $L
