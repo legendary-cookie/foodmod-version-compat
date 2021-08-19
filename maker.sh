@@ -43,3 +43,9 @@ printf "\tDownloading 'tomato_crops.json' ...\n"
 sleep 0.2
 curl -sL https://github.com/legendary-cookie/foodmod-version-compat/raw/master/loot_tables/tomato_crop.json --output $FT/blocks/tomato_crops.json
 rm $LT/chests/village/village_house_plains.json
+sleep 0.2
+echo
+echo "Building jar ..."
+chmod 0755 ./gradlew
+./gradlew -Dorg.gradle.logging.level=quiet build
+
