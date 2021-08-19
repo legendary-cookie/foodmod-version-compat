@@ -27,6 +27,6 @@ wget https://github.com/legendary-cookie/foodmod-version-compat/raw/master/spruc
 
 wget https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/village_plains_house.json -O $LT/chests/village/village_plains_house.json
 
-wget https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/tomato_crop.json -O $FT/blocks/tomato_crops.json
+wget https://github.com/legendary-cookie/foodmod-version-compat/raw/master/tomato_crop.json -O $FT/blocks/tomato_crops.json
 
 rm $LT/chests/village/village_house_plains.json
