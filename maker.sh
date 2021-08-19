@@ -20,7 +20,7 @@ echo
 L=$HOME/foodmod/
 rm -rf $L
 echo "Cloning git repository ..."
-git clone -q git@github.com:Link4Real/FoodMod $L
+git clone -q https://github.com/Link4Real/FoodMod $L
 echo "Cloned git repository ..."
 sleep 0.2
 # file constants
