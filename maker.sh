@@ -46,6 +46,8 @@ rm $LT/chests/village/village_house_plains.json
 sleep 0.2
 echo
 echo "Building jar ..."
+cd $L
 chmod 0755 ./gradlew
 ./gradlew -Dorg.gradle.logging.level=quiet build
-
+rm build/libs/*-dev.jar
+rm build/libs/*-sources.jar
