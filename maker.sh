@@ -1,4 +1,19 @@
 #!/bin/bash
+RED=$(tput setaf 196)
+LIGHTRED=$(tput setaf 011)
+BOLD=$(tput bold)
+check () {
+	if ! command -v $1 &> /dev/null
+	then
+		echo "$BOLD $LIGHTRED Command $RED $1 $LIGHTRED could not be found"
+		exit
+	fi
+}
+
+check "curl"
+check "java"
+check "git"
+
 curl https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/banner.txt 1>/dev/stdout 2>/dev/null
 echo "Made by legendary-cookie"
 echo
@@ -48,8 +63,14 @@ rm $LT/chests/village/village_house_plains.json
 sleep 0.2
 echo
 echo "Building jar ..."
+sleep 0.2
 cd $L
 chmod 0755 ./gradlew
 ./gradlew -Dorg.gradle.logging.level=quiet build
 rm build/libs/*-dev.jar
 rm build/libs/*-sources.jar
+echo "Creating git tag ..."
+sleep 0.2
+COMMIT=$(git rev-parse --short HEAD)
+git tag $COMMIT
+echo "Created git tag for commit: $COMMIT"
