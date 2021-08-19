@@ -1,5 +1,7 @@
 #!/bin/bash
 curl https://raw.githubusercontent.com/legendary-cookie/foodmod-version-compat/master/banner.txt 1>/dev/stdout 2>/dev/null
+echo "Made by legendary-cookie"
+echo
 L=$HOME/foodmod/
 rm -rf $L
 echo "Cloning git repository ..."
