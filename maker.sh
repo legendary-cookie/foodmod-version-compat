@@ -30,7 +30,8 @@ echo "Patching build.gradle ..."
 sleep 0.2
 sed -i 's/JavaVersion.VERSION_16/1.8/g' $b
 sed -i 's/0.8-SNAPSHOT/0.7-SNAPSHOT/g' $b
-sed -i 's/it.options.release = 16/it.options.release = 8/g' $b
+## sed -i 's/it.options.release = 16/it.options.release = 8/g' $b
+sed -i 's/it.options.release = 16//g' $b
 # gradle.properties changes
 echo "Patching gradle.properties ..."
 sleep 0.2
