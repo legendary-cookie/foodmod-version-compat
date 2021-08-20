@@ -86,5 +86,9 @@ rm -f build/libs/*-sources.jar
 echo "Creating git tag ..."
 sleep 0.2
 COMMIT=$(git rev-parse --short HEAD)
-git tag $COMMIT
-echo "Created git tag for commit: $COMMIT"
+git checkout -b maker/$COMMIT
+git add -A
+git add -f build/libs/*.jar
+git commit -m "1.16.x backport"
+echo "Created git branch for commit: $COMMIT"
+git push origin maker/$COMMIT
